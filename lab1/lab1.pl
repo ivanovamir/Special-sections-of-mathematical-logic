@@ -85,13 +85,13 @@ goal4 :- parent(liliana, alina),parent(sabira, liliana),female(alina).
 % goal5: "Является ли Амир двоюродным братом Алины?"
 goal5 :- parent(leysan, amir),parent(sabira, leysan),parent(sabira, liliana),parent(liliana, alina),female(alina),male(amir).
 
-%goal6 "Вывести матерей и их детей"
+% goal6 "Вывести матерей и их детей"
 goal6(X) :- mother(X, Y), writef("%t is mother of %t\n", [X, Y]).
 
-%goal7 "Вывести матерей и их детей"
+% goal7 "Вывести матерей и их детей"
 goal7(X) :- father(X, Y), writef("%t is father of %t\n", [X, Y]).
 
-%goal8 "Является ли Алина сестрой Эльвины"
+% goal8 "Является ли Алина сестрой Эльвины"
 goal8(X) :- (parent(sasha, alina),parent(sasha, elvina);parent(liliana, alina),parent(liliana, elvina);(parent(sasha, alina),parent(sasha, elvina),parent(liliana, alina),parent(liliana, elvina),married(sasha, liliana))),female(alina),female(elvina), writef("%t is sister of %d\n", [alina,elvina]).
 
 % goal9: "Моложе ли Амир чем Алина?"
@@ -130,3 +130,6 @@ goal13 :- (parent(Father, Daughter);
     work(Father, lukoil),
     writef('%w is father of %w and %w is oilman', [Father, Daughter, Father]).
 
+% goal14: "Есть ли у бабушки веучка 2000 года рождения"
+goal14 :- parent(Roditel,Child),female(Roditel),parent(Babka,Roditel),female(Babka),year(Child, 2000),
+writef('%w is grandmother of %w whos birthday in 2000', [Babka, Child]).
